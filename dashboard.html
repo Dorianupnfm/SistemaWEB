@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1 id="saldo" aria-live="polite">SALDO: L. 30,000</h1>
+        <button id="rechargeButton" aria-controls="rechargeForm">Recargar</button>
+        <button id="generateButton" aria-controls="generateForm">Generar</button>
+        <a href="pedidos.html">Ver Pedidos Generados</a>
+
+        <div id="rechargeForm" style="display: none;">
+            <h2>Formulario de Recarga</h2>
+            <form id="formRecarga">
+                <label for="recargaId">Id:</label>
+                <input type="text" id="recargaId" required>
+                <label for="recargaFecha">Fecha:</label>
+                <input type="date" id="recargaFecha" required>
+                <label for="recargaCantidad">Cantidad:</label>
+                <input type="number" id="recargaCantidad" required>
+                <label for="recargaTipo">Tipo:</label>
+                <select id="recargaTipo">
+                    <option value="Gasolina Regular">Gasolina Regular</option>
+                    <option value="Gasolina Premium">Gasolina Premium</option>
+                    <option value="Diesel">Diesel</option>
+                    <option value="Gas LP">Gas LP</option>
+                </select>
+                <button type="submit">Guardar</button>
+            </form>
+        </div>
+
+        <div id="generateForm" style="display: none;">
+            <h2>Generar Monto</h2>
+            <form id="formGenerate">
+                <label for="generateAmount">Monto en Lempiras:</label>
+                <input type="number" id="generateAmount" required>
+                <button type="submit">Generar</button>
+            </form>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Fecha</th>
+                    <th>Cantidad</th>
+                    <th>Tipo</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="transactionBody">
+                <!-- Registros se llenarán dinámicamente -->
+            </tbody>
+        </table>
+        <a href="#" id="verMas" style="display: none;">Ver más</a>
+    </div>
+</body>
+</html>
